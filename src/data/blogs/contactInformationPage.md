@@ -2,7 +2,7 @@
 
 ## 联系方式主页
 
-[宽宽2007的联系方式](https://kuankuan2007.gitee.io/contactInformation/ "单机打开")
+[宽宽2007的联系方式](https://kuankuan2007.gitee.io/contactInformation/ '单机打开')
 
 ## 注意事项
 

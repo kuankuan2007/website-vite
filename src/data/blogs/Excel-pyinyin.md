@@ -8,9 +8,9 @@
 
 项目地址:
 
-+ [Excel拼音: 一个在Execl中，可以让汉字转拼音异常轻松的宏文件 (gitee.com)](https://gitee.com/kuankuan2007/excel-pinyin)
+- [Excel拼音: 一个在Execl中，可以让汉字转拼音异常轻松的宏文件 (gitee.com)](https://gitee.com/kuankuan2007/excel-pinyin)
 
-+ [kuankuan2007/excel-pinyin: 一个在Execl中，可以让汉字转拼音异常轻松的宏文件 (github.com)](https://github.com/kuankuan2007/excel-pinyin)
+- [kuankuan2007/excel-pinyin: 一个在Execl中，可以让汉字转拼音异常轻松的宏文件 (github.com)](https://github.com/kuankuan2007/excel-pinyin)
 
 ---
 

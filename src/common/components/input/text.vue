@@ -1,14 +1,22 @@
 <template>
   <div class="input-group" ref="inputGroup" :class="{ disabled: props.disabled }">
-    <input :disabled="props.disabled" :class="{
-      input: true,
-      'no-empty': props.value.length > 0
-    }" :type="props.type" :value="props.value" @input="valueChange" ref="input" />
-    <p class="title" ref="title">{{ props.title }}
+    <input
+      :disabled="props.disabled"
+      :class="{
+        input: true,
+        'no-empty': props.value.length > 0,
+      }"
+      :type="props.type"
+      :value="props.value"
+      @input="valueChange"
+      ref="input"
+    />
+    <p class="title" ref="title">
+      {{ props.title }}
       <Transition name="reminder">
-        <span class="reminder" v-show="wrong != 0 && wrong != -1"><span class="demo-icon">&#xe817;</span>{{
-          props.reminder[wrong - 1]
-        }}</span>
+        <span class="reminder" v-show="wrong != 0 && wrong != -1"
+          ><span class="demo-icon">&#xe817;</span>{{ props.reminder[wrong - 1] }}</span
+        >
       </Transition>
     </p>
     <div class="back"></div>
@@ -16,57 +24,60 @@
 </template>
 <script setup>
 import { watchEffect, onMounted, ref } from 'vue';
-const emit = defineEmits(["update:value"])
-let input = ref(null)
+const emit = defineEmits(['update:value']);
+let input = ref(null);
 let props = defineProps({
   type: {
     type: String,
-    default: "text",
-    required: false
+    default: 'text',
+    required: false,
   },
   value: {
     type: String,
-    default: "",
-    required: false
+    default: '',
+    required: false,
   },
   title: {
     type: String,
-    default: "文本",
-    required: false
-  }, tester: {
+    default: '文本',
+    required: false,
+  },
+  tester: {
     type: Function,
     default: () => 0,
-    required: false
-  }, reminder: {
+    required: false,
+  },
+  reminder: {
     type: Array,
-    default: ["内容格式不正确"],
-    required: false
-  }, disabled: {
+    default: ['内容格式不正确'],
+    required: false,
+  },
+  disabled: {
     type: Boolean,
     required: false,
-    default: false
-  }
-})
-let inputGroup = ref(null)
-let title = ref(null)
-let wrong = ref(props.value ? props.tester(props.value) : -1)
+    default: false,
+  },
+});
+let inputGroup = ref(null);
+let title = ref(null);
+let wrong = ref(props.value ? props.tester(props.value) : -1);
 function refreshReminder(value, ...args) {
-  wrong.value = value ? props.tester(value, ...args) : -1
+  wrong.value = value ? props.tester(value, ...args) : -1;
 }
 /**
- * @param {MouseEvent} event 
+ * @param {MouseEvent} event
  */
 function valueChange(event) {
-  refreshReminder(event.target.value)
-  emit("update:value", event)
+  refreshReminder(event.target.value);
+  emit('update:value', event);
 }
 defineExpose({
   wrong,
   reminder: props.reminder,
   input,
   title: props.title,
-  refreshReminder
-})
+  refreshReminder,
+});
 </script>
 <style lang="scss" scoped>
 .disabled {
@@ -114,8 +125,7 @@ defineExpose({
   &:focus,
   &:active,
   &.no-empty {
-
-    &+.title {
+    & + .title {
       transform: translate(-10px, -150%);
       opacity: 1;
       pointer-events: all;
@@ -125,7 +135,7 @@ defineExpose({
 
   &:focus,
   &:active {
-    &+*+.back {
+    & + * + .back {
       width: 100%;
     }
   }
@@ -160,4 +170,5 @@ defineExpose({
   width: 0%;
   height: 2px;
   transition: 0.3s;
-}</style>
+}
+</style>

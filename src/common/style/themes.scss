@@ -1,30 +1,30 @@
-@use "sass:string";
-@use "sass:color";
-@use "sass:list";
-@use "sass:meta";
+@use 'sass:string';
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:meta';
 $base-colors: (
-  "light-full": (
+  'light-full': (
     #dbdbff,
     #ffc7c7,
     #fffff1,
     #ffddbd,
     #ffd8ff,
   ),
-  "dark-full": (
+  'dark-full': (
     #0e001b,
     #071f00,
     #330000,
     #291400,
     #240024,
   ),
-  "light-simple": (
+  'light-simple': (
     #ffffff,
     #ffffff,
     #ffffff,
     #ffffff,
     #ffffff,
   ),
-  "dark-simple": (
+  'dark-simple': (
     #000000,
     #000000,
     #000000,
@@ -33,128 +33,131 @@ $base-colors: (
   ),
 );
 @function split($s, $n) {
-  @if (string.index($s, "-") ==null) {
+  @if (string.index($s, '-') ==null) {
     @return $s;
   }
   @if ($n==1) {
-    @return string.slice($s, 0, string.index($s, "-")-1);
+    @return string.slice($s, 0, string.index($s, '-')-1);
   }
   @for $i from $n through 1 {
-    @if (string.index($s, "-") ==null) {
+    @if (string.index($s, '-') ==null) {
       @return $s;
     }
     @if ($i==1) {
-      @return string.slice($s, 0, string.index($s, "-")-1);
+      @return string.slice($s, 0, string.index($s, '-')-1);
     }
-    $s: string.slice($s, string.index($s, "-") + 1);
+    $s: string.slice($s, string.index($s, '-') + 1);
   }
 }
 @each $key, $colors in $base-colors {
-  html[data-theme-light="#{split($key,1)}"][data-theme-color="#{split($key,2)}"][data-theme-opacity="false"] {
+  html[data-theme-light='#{split($key,1)}'][data-theme-color='#{split($key,2)}'][data-theme-opacity='false'] {
     $base-color: $colors;
-    @if (split($key, 1) == "light") {
+    @if (split($key, 1) == 'light') {
       @for $i from 1 through list.length($base-color) {
         @for $j from 1 through 5 {
-          --theme-#{$i}-#{$j}: #{color.scale(list.nth($base-color, $i),$lightness: $j * -2%)};
+          --theme-#{$i}-#{$j}: #{color.scale(list.nth($base-color, $i), $lightness: $j * -2%)};
         }
       }
       @for $i from 1 through list.length($base-color) {
-        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i),$lightness: -50%)};
+        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i), $lightness: -50%)};
       }
     } @else {
       @for $i from 1 through list.length($base-color) {
         @for $j from 1 through 5 {
-          --theme-#{$i}-#{$j}: #{color.scale(list.nth($base-color, $i),$lightness: $j * 2%)};
+          --theme-#{$i}-#{$j}: #{color.scale(list.nth($base-color, $i), $lightness: $j * 2%)};
         }
       }
       @for $i from 1 through list.length($base-color) {
-        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i),$lightness: 50%)};
+        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i), $lightness: 50%)};
       }
     }
   }
-  html[data-theme-light="#{split($key,1)}"][data-theme-color="#{split($key,2)}"][data-theme-opacity="blur"],
-  html[data-theme-light="#{split($key,1)}"][data-theme-color="#{split($key,2)}"][data-theme-opacity="true"] {
+  html[data-theme-light='#{split($key,1)}'][data-theme-color='#{split($key,2)}'][data-theme-opacity='blur'],
+  html[data-theme-light='#{split($key,1)}'][data-theme-color='#{split($key,2)}'][data-theme-opacity='true'] {
     $base-color: $colors;
-    @if (split($key, 1) == "light") {
+    @if (split($key, 1) == 'light') {
       @for $i from 1 through list.length($base-color) {
         @for $j from 1 through 10 {
           --theme-#{$i}-#{$j}: #{rgba(
-              color.scale(list.nth($base-color, $i),$lightness: $j * -2%),
+              color.scale(list.nth($base-color, $i), $lightness: $j * -2%),
               0.8
             )};
         }
       }
       @for $i from 1 through list.length($base-color) {
-        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i),$lightness: -50%)};
+        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i), $lightness: -50%)};
       }
     } @else {
       @for $i from 1 through list.length($base-color) {
         @for $j from 1 through 10 {
           --theme-#{$i}-#{$j}: #{rgba(
-              color.scale(list.nth($base-color, $i),$lightness: $j * 2%),
+              color.scale(list.nth($base-color, $i), $lightness: $j * 2%),
               0.8
             )};
         }
       }
       @for $i from 1 through list.length($base-color) {
-        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i),$lightness: 50%)};
+        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i), $lightness: 50%)};
       }
     }
   }
 }
-html[data-theme-light="light"] {
+html[data-theme-light='light'] {
   --background: #fbe7ff;
   --font-color-b: #ffffff;
   --font-color: #000000;
   --theme-disabled-font: #555555;
   --theme-disabled-block: #9e9e9e;
-  @include meta.load-css("highlight.js/scss/vs");
+  @include meta.load-css('highlight.js/scss/vs');
 }
-html[data-theme-light="dark"] {
+html[data-theme-light='dark'] {
   --font-color-b: #000000;
   --font-color: #ffffff;
   --background: #010011;
   --theme-disabled-font: #888888;
   --theme-disabled-block: #474747;
-  @include meta.load-css("highlight.js/scss/monokai-sublime");
+  @include meta.load-css('highlight.js/scss/monokai-sublime');
 }
 $strong-colors: (
-  "full": (
+  'full': (
     #0000ff,
     #ff0000,
     #00ff00,
   ),
-  "simple": (
+  'simple': (
     #0000ff,
     #ff00c8,
     #ff009d,
   ),
 );
 @each $key, $colors in $strong-colors {
-  html[data-theme-color="#{$key}"] {
+  html[data-theme-color='#{$key}'] {
     $strong-color: $colors;
     @for $i from 1 through list.length($strong-color) {
       @for $j from 1 through 4 {
-        --theme-strong#{$i}-#{$j}: #{color.scale(list.nth($strong-color, $i),$lightness: $j * 10%)};
+        --theme-strong#{$i}-#{$j}: #{color.scale(
+            list.nth($strong-color, $i),
+            $lightness: $j * 10%
+          )};
       }
-      --theme-strong#{$i}:#{list.nth($strong-color, $i)};
+      --theme-strong#{$i}: #{list.nth($strong-color, $i)};
     }
   }
-};
+}
 
-html[data-theme-rounded-border="full"] {
+html[data-theme-rounded-border='full'] {
   --theme-border-radius: 1;
 }
-html[data-theme-rounded-border="normal"] {
+html[data-theme-rounded-border='normal'] {
   --theme-border-radius: 0.5;
 }
-html[data-theme-rounded-border="none"] {
+html[data-theme-rounded-border='none'] {
   --theme-border-radius: 0;
 }
 html {
   --theme-backdrop-blur: 0;
 }
-html[data-theme-opacity="blur"] {
+html[data-theme-opacity='blur'] {
   --theme-backdrop-blur: 1;
 }
 body {

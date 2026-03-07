@@ -1,4 +1,3 @@
-
 # VitePluginElectron
 
 VitePluginElectron是用于简化Electron项目开发的Vite插件。
@@ -23,24 +22,24 @@ npm install @kuankuan/vite-plugin-electron --D
 在你的 `vite.config.js` 文件中添加以下配置：
 
 ```javascript
-import vitePluginElectron from "vite-plugin-electron";
+import vitePluginElectron from 'vite-plugin-electron';
 
 export default {
   plugins: [
     vitePluginElectron({
       electronBuilder: {
         config: {
-          files: ["**/*"],
+          files: ['**/*'],
           asar: true,
-          productName: "yourAppName",
+          productName: 'yourAppName',
           nsis: {
             oneClick: false,
             allowToChangeInstallationDirectory: true,
           },
         },
       },
-      esbuildTarget: "node18",
-      main: "src/background.ts",// Electron入口文件
+      esbuildTarget: 'node18',
+      main: 'src/background.ts', // Electron入口文件
     }),
   ],
 };
@@ -54,7 +53,7 @@ export default {
 if (process.argv[2]) {
   win.loadURL(process.argv[2]);
 } else {
-  win.loadFile("index.html");
+  win.loadFile('index.html');
 }
 ```
 

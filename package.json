@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "load-fontello": "node assist/load-fontello.js"
+    "load-fontello": "node assist/load-fontello.js",
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@vitejs/plugin-legacy": "^7.2.1",
@@ -34,6 +35,7 @@
     "@types/sprintf": "^0.1.2",
     "@vitejs/plugin-vue": "^6.0.4",
     "compressing": "^2.1.0",
+    "prettier": "^3.8.1",
     "rollup-plugin-visualizer": "^7.0.1",
     "sass": "^1.97.3",
     "terser": "^5.46.0",

@@ -1,55 +1,45 @@
-@import url("./font-icos.css");
-@import url("./huawen-xingkai.css");
-@import url("./font.scss");
+@import url('./font-icos.css');
+@import url('./huawen-xingkai.css');
+@import url('./font.scss');
 
 ::-webkit-scrollbar {
+  width: 12px;
 
-    width: 12px;
-
-    height: 12px;
-
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track-piece {
+  background-color: transparent;
 
-    background-color: transparent;
-
-    -webkit-border-radius: 6px;
-
+  -webkit-border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
+  height: 12px;
 
-    height: 12px;
+  background-color: #bdbdbd;
 
-    background-color: #BDBDBD;
+  -webkit-border-radius: calc(12px * var(--theme-border-radius));
 
-    -webkit-border-radius: calc(12px * var(--theme-border-radius));
-
-    transition: 0.3s;
-
+  transition: 0.3s;
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
+  width: 12px;
 
-    width: 12px;
+  background-color: #bdbdbd;
 
-    background-color: #BDBDBD;
+  transition: 0.3s;
 
-    transition: 0.3s;
-
-    -webkit-border-radius: 6px;
-
+  -webkit-border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:vertical:hover,
 ::-webkit-scrollbar-thumb:horizontal:hover {
-
-    background-color: #808080;
-
+  background-color: #808080;
 }
 
 * {
-    scrollbar-track-color: transparent;
-    -ms-scrollbar-track-color: transparent;
+  scrollbar-track-color: transparent;
+  -ms-scrollbar-track-color: transparent;
 }
