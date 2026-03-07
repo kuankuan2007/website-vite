@@ -26,12 +26,13 @@
         :simple-page-height="simplePageHeight"
       />
       <div class="footer">
+        <p>渝ICP备2023004395号-1</p>
         <p>
           <img src="./assets/police-badge.png" alt="警徽" class="police-badge" />
           渝公网安备50010702506491号
         </p>
-        <p>渝ICP备2023004395号-1</p>
-        <p>宽宽的小天地 © 2023-2025 苟浩铭</p>
+        <p>宽宽的小天地 © 2023-2026 宽宽2007</p>
+        <p>Powered by 曜魄科技</p>
       </div>
     </div>
   </div>
