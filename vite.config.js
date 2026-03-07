@@ -6,11 +6,27 @@ import Inspect from 'vite-plugin-inspect';
 import { visualizer } from 'rollup-plugin-visualizer';
 import sitemapPlugin from 'vite-plugin-sitemap';
 
+import postcssPresetEnv from 'postcss-preset-env';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
+
 import ViteCustom404PagePlugin from './plugins/ViteCustom404PagePlugin';
 import { dfsSearch } from './assist/findFiles';
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
+  css: {
+    postcss: {
+      plugins: [
+        postcssPresetEnv(),
+        autoprefixer({
+          overrideBrowserslist: ['Android 4.1', 'iOS 7.1', 'Chrome > 31', 'ff > 31', 'ie >= 8'],
+          grid: true,
+        }),
+        cssnano(),
+      ],
+    },
+  },
   resolve: {
     alias: {
       'particles.js': path.resolve(__dirname, 'modifiedPackage/particles.js/particles.js'),
