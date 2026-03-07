@@ -97,7 +97,7 @@ worker.onmessage = function (event) {
     ans.splice(0, 4)
     statue.splice(0, 4)
     for (let i = 0; i < 4; i++) {
-      values.push(getRandomInt(-1000, 1000))
+      values.push(getRandomInt(1, 13))
       statue.push(false)
     }
     worker.postMessage({ type: "start", data: new ArrayLike(values) })

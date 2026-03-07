@@ -1,7 +1,7 @@
 <template>
     <div class="nav-list-scroll">
         <div class="nav-list-box" ref="navList" v-on-resize="refreshNavListBoxSize">
-            <img class="center-logo" src="../../public/logo.png" />
+            <img class="center-logo" src="/logo.png" />
             <div class="centers">
                 <h1 class="list-title">多彩世界，纷至沓来</h1>
                 <div class="center-list" ref="centerBox" v-on-resize="refreshCenterBoxSize">

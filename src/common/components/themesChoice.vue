@@ -27,7 +27,7 @@ import importbutton from "./input/linkLikeButton.vue"
 
 import mydialog from "./dialog.vue";
 function getUrl(name) {
-    return new URL(`../image/themeShower/${name}.svg`, import.meta.url).pathname
+    return new URL(`../image/themeShower/${name}.svg`, import.meta.url).href
 }
 function change(name, value) {
     data[name] = value

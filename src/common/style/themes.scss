@@ -1,4 +1,7 @@
 @use "sass:string";
+@use "sass:color";
+@use "sass:list";
+@use "sass:meta";
 $base-colors: (
   "light-full": (
     #dbdbff,
@@ -30,42 +33,42 @@ $base-colors: (
   ),
 );
 @function split($s, $n) {
-  @if (str-index($s, "-") ==null) {
+  @if (string.index($s, "-") ==null) {
     @return $s;
   }
   @if ($n==1) {
-    @return str-slice($s, 0, str-index($s, "-")-1);
+    @return string.slice($s, 0, string.index($s, "-")-1);
   }
   @for $i from $n through 1 {
-    @if (str-index($s, "-") ==null) {
+    @if (string.index($s, "-") ==null) {
       @return $s;
     }
     @if ($i==1) {
-      @return str-slice($s, 0, str-index($s, "-")-1);
+      @return string.slice($s, 0, string.index($s, "-")-1);
     }
-    $s: str-slice($s, str-index($s, "-") + 1);
+    $s: string.slice($s, string.index($s, "-") + 1);
   }
 }
 @each $key, $colors in $base-colors {
   html[data-theme-light="#{split($key,1)}"][data-theme-color="#{split($key,2)}"][data-theme-opacity="false"] {
     $base-color: $colors;
     @if (split($key, 1) == "light") {
-      @for $i from 1 through length($base-color) {
+      @for $i from 1 through list.length($base-color) {
         @for $j from 1 through 5 {
-          --theme-#{$i}-#{$j}: #{darken(nth($base-color, $i), $j * 2%)};
+          --theme-#{$i}-#{$j}: #{color.scale(list.nth($base-color, $i),$lightness: $j * -2%)};
         }
       }
-      @for $i from 1 through length($base-color) {
-        --theme-#{$i}-b: #{darken(nth($base-color, $i), 50%)};
+      @for $i from 1 through list.length($base-color) {
+        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i),$lightness: -50%)};
       }
     } @else {
-      @for $i from 1 through length($base-color) {
+      @for $i from 1 through list.length($base-color) {
         @for $j from 1 through 5 {
-          --theme-#{$i}-#{$j}: #{lighten(nth($base-color, $i), $j * 2%)};
+          --theme-#{$i}-#{$j}: #{color.scale(list.nth($base-color, $i),$lightness: $j * 2%)};
         }
       }
-      @for $i from 1 through length($base-color) {
-        --theme-#{$i}-b: #{lighten(nth($base-color, $i), 50%)};
+      @for $i from 1 through list.length($base-color) {
+        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i),$lightness: 50%)};
       }
     }
   }
@@ -73,28 +76,28 @@ $base-colors: (
   html[data-theme-light="#{split($key,1)}"][data-theme-color="#{split($key,2)}"][data-theme-opacity="true"] {
     $base-color: $colors;
     @if (split($key, 1) == "light") {
-      @for $i from 1 through length($base-color) {
+      @for $i from 1 through list.length($base-color) {
         @for $j from 1 through 10 {
           --theme-#{$i}-#{$j}: #{rgba(
-              darken(nth($base-color, $i), $j * 2%),
+              color.scale(list.nth($base-color, $i),$lightness: $j * -2%),
               0.8
             )};
         }
       }
-      @for $i from 1 through length($base-color) {
-        --theme-#{$i}-b: #{darken(nth($base-color, $i), 50%)};
+      @for $i from 1 through list.length($base-color) {
+        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i),$lightness: -50%)};
       }
     } @else {
-      @for $i from 1 through length($base-color) {
+      @for $i from 1 through list.length($base-color) {
         @for $j from 1 through 10 {
           --theme-#{$i}-#{$j}: #{rgba(
-              lighten(nth($base-color, $i), $j * 2%),
+              color.scale(list.nth($base-color, $i),$lightness: $j * 2%),
               0.8
             )};
         }
       }
-      @for $i from 1 through length($base-color) {
-        --theme-#{$i}-b: #{lighten(nth($base-color, $i), 50%)};
+      @for $i from 1 through list.length($base-color) {
+        --theme-#{$i}-b: #{color.scale(list.nth($base-color, $i),$lightness: 50%)};
       }
     }
   }
@@ -105,7 +108,7 @@ html[data-theme-light="light"] {
   --font-color: #000000;
   --theme-disabled-font: #555555;
   --theme-disabled-block: #9e9e9e;
-  @import "../../../node_modules/highlight.js/scss/vs.scss";
+  @include meta.load-css("highlight.js/scss/vs");
 }
 html[data-theme-light="dark"] {
   --font-color-b: #000000;
@@ -113,7 +116,7 @@ html[data-theme-light="dark"] {
   --background: #010011;
   --theme-disabled-font: #888888;
   --theme-disabled-block: #474747;
-  @import "../../../node_modules/highlight.js/scss/monokai-sublime.scss";
+  @include meta.load-css("highlight.js/scss/monokai-sublime");
 }
 $strong-colors: (
   "full": (
@@ -130,11 +133,11 @@ $strong-colors: (
 @each $key, $colors in $strong-colors {
   html[data-theme-color="#{$key}"] {
     $strong-color: $colors;
-    @for $i from 1 through length($strong-color) {
+    @for $i from 1 through list.length($strong-color) {
       @for $j from 1 through 4 {
-        --theme-strong#{$i}-#{$j}: #{lighten(nth($strong-color, $i), $j * 10%)};
+        --theme-strong#{$i}-#{$j}: #{color.scale(list.nth($strong-color, $i),$lightness: $j * 10%)};
       }
-      --theme-strong#{$i}:#{nth($strong-color, $i)};
+      --theme-strong#{$i}:#{list.nth($strong-color, $i)};
     }
   }
 };
