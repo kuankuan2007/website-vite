@@ -2,6 +2,8 @@ import path from 'path';
 import process from 'process';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import vueDevTools from 'vite-plugin-vue-devtools';
+
 import Inspect from 'vite-plugin-inspect';
 import { visualizer } from 'rollup-plugin-visualizer';
 import sitemapPlugin from 'vite-plugin-sitemap';
@@ -41,6 +43,7 @@ export default defineConfig({
   appType: 'mpa',
   plugins: [
     vue(),
+    vueDevTools(),
     Inspect(),
     visualizer({
       gzipSize: true,
