@@ -17,8 +17,12 @@ import { dfsSearch } from './assist/findFiles';
 
 const dirname = import.meta.dirname.replaceAll("\\", "/");
 
+function getNodeModulesPath(name) {
+  return path.posix.join(dirname, "node_modules", name);
+}
+
 const chunkConfig = {
-  markdown: ['showdown', 'showdown-katex', 'xss', 'katex', 'highlight.js'],
+  markdown: [getNodeModulesPath('showdown'), getNodeModulesPath('showdown-katex'), getNodeModulesPath('xss'), getNodeModulesPath('katex'), getNodeModulesPath('highlight.js')],
   connections: [path.posix.join(dirname, './src/common/script/connection.js')],
   normal: [path.posix.join(dirname, './src/common/script/normal.js')],
   infomations: [path.posix.join(dirname, './src/common/script/infomations.js')],
@@ -81,13 +85,13 @@ export default defineConfig({
     rolldownOptions: {
       input: dfsSearch(path.resolve('./'), (str) => str.endsWith('.html') || str.endsWith('.htm')),
       output: {
-        manualChunks: (id) => {
-          for (const [key, value] of Object.entries(chunkConfig)) {
-            if (value.includes(id)) {
-              return key;
-            }
-          }
-          return null;
+        codeSplitting: {
+          groups: Object.entries(chunkConfig).map(([key, value]) => ({
+            name: key,
+            test: (id) => {
+              return value.some((item) => id.startsWith(item));
+            },
+          }))
         },
         entryFileNames: function (chunkInfo) {
           let pathName = (
