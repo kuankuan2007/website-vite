@@ -15,6 +15,24 @@ import cssnano from 'cssnano';
 import ViteCustom404PagePlugin from './plugins/ViteCustom404PagePlugin';
 import { dfsSearch } from './assist/findFiles';
 
+const dirname = import.meta.dirname.replaceAll("\\", "/");
+
+const chunkConfig = {
+  markdown: ['showdown', 'showdown-katex', 'xss', 'katex', 'highlight.js'],
+  connections: [path.posix.join(dirname, './src/common/script/connection.js')],
+  normal: [path.posix.join(dirname, './src/common/script/normal.js')],
+  infomations: [path.posix.join(dirname, './src/common/script/infomations.js')],
+  initEnv: [
+    path.posix.join(dirname, './src/common/script/all.js'),
+    path.posix.join(dirname, './src/common/script/arraySort.js'),
+    path.posix.join(dirname, './src/common/script/arrayBufferJsonSport.js'),
+    path.posix.join(dirname, './src/common/script/storageEvent.js'),
+    path.posix.join(dirname, './src/common/script/stringPoint.js'),
+    path.posix.join(dirname, './src/common/script/browerInfo.js'),
+    path.posix.join(dirname, './src/common/script/copy.js'),
+  ],
+};
+console.log(chunkConfig)
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
   css: {
@@ -32,7 +50,6 @@ export default defineConfig({
   resolve: {
     alias: {
       'particles.js': path.resolve(__dirname, 'modifiedPackage/particles.js/particles.js'),
-      process: path.resolve(__dirname, 'modifiedPackage/node-process/browser.js'),
     },
   },
   server: {
@@ -61,23 +78,16 @@ export default defineConfig({
   ],
   build: {
     outDir: 'builded/dist',
-    rollupOptions: {
+    rolldownOptions: {
       input: dfsSearch(path.resolve('./'), (str) => str.endsWith('.html') || str.endsWith('.htm')),
       output: {
-        manualChunks: {
-          markdown: ['showdown', 'showdown-katex', 'xss', 'katex', 'highlight.js'],
-          connections: [path.resolve(__dirname, './src/common/script/connection.js')],
-          normal: [path.resolve(__dirname, './src/common/script/normal.js')],
-          infomations: [path.resolve(__dirname, './src/common/script/infomations.js')],
-          initEnv: [
-            path.resolve(__dirname, './src/common/script/all.js'),
-            path.resolve(__dirname, './src/common/script/arraySort.js'),
-            path.resolve(__dirname, './src/common/script/arrayBufferJsonSport.js'),
-            path.resolve(__dirname, './src/common/script/storageEvent.js'),
-            path.resolve(__dirname, './src/common/script/stringPoint.js'),
-            path.resolve(__dirname, './src/common/script/browerInfo.js'),
-            path.resolve(__dirname, './src/common/script/copy.js'),
-          ],
+        manualChunks: (id) => {
+          for (const [key, value] of Object.entries(chunkConfig)) {
+            if (value.includes(id)) {
+              return key;
+            }
+          }
+          return null;
         },
         entryFileNames: function (chunkInfo) {
           let pathName = (
@@ -91,7 +101,7 @@ export default defineConfig({
         },
         assetFileNames: function (chunkInfo) {
           if (chunkInfo.source === '/* vite internal call, ignore */') {
-            return chunkInfo.name;
+            return chunkInfo.names[0];
           }
           const extToDir = {
             script: ['.js'],
@@ -101,7 +111,7 @@ export default defineConfig({
           };
 
           for (const i in extToDir) {
-            if (extToDir[i].some((ext) => chunkInfo.name.endsWith(ext))) {
+            if (extToDir[i].some((ext) => chunkInfo.names[0].endsWith(ext))) {
               return `${i}/[name]-[hash].[ext]`;
             }
           }
