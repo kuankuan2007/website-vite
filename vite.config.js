@@ -77,8 +77,6 @@ export default defineConfig({
             path.resolve(__dirname, './src/common/script/stringPoint.js'),
             path.resolve(__dirname, './src/common/script/browerInfo.js'),
             path.resolve(__dirname, './src/common/script/copy.js'),
-            'buffer',
-            'process',
           ],
         },
         entryFileNames: function (chunkInfo) {
