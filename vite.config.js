@@ -36,7 +36,6 @@ const chunkConfig = {
     path.posix.join(dirname, './src/common/script/copy.js'),
   ],
 };
-console.log(chunkConfig)
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
   css: {
