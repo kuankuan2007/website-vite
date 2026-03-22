@@ -75,12 +75,10 @@ export default defineConfig({
     sitemapPlugin({
       hostname: 'http://www.kuankuan.site/',
       changefreq: 'weekly',
-      outDir: 'builded/dist',
     }),
     ViteCustom404PagePlugin(),
   ],
   build: {
-    outDir: 'builded/dist',
     rolldownOptions: {
       input: dfsSearch(path.resolve('./'), (str) => str.endsWith('.html') || str.endsWith('.htm')),
       output: {
