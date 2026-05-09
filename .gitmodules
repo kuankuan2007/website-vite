@@ -1,6 +1,6 @@
 [submodule "src/common/font/image-captcha-font"]
 	path = src/common/font/image-captcha-font
-	url = https://gitee.com/kuankuan2007/image-captcha-font.git
+	url = https://github.com/kuankuan2007/image-captcha-font.git
 [submodule "modifiedPackage/particles.js"]
 	path = modifiedPackage/particles.js
 	url = https://github.com/kuankuan2007/particles.js.git

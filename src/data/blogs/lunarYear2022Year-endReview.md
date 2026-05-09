@@ -8,35 +8,35 @@
 
 #### 开源项目
 
-+ [智能回复](https://gitee.com/kuankuan2007/smart-reply)
+- [智能回复](https://gitee.com/kuankuan2007/smart-reply)
 
-+ [连点器](https://gitee.com/kuankuan2007/connector)
+- [连点器](https://gitee.com/kuankuan2007/connector)
 
-+ [文件夹同步](https://gitee.com/kuankuan2007/folder-synchronization)
+- [文件夹同步](https://gitee.com/kuankuan2007/folder-synchronization)
 
-+ [pip自动更新](https://gitee.com/kuankuan2007/pip-automatic-update)
+- [pip自动更新](https://gitee.com/kuankuan2007/pip-automatic-update)
 
-+ [成语接龙](https://gitee.com/kuankuan2007/idiom-solitaire)
+- [成语接龙](https://gitee.com/kuankuan2007/idiom-solitaire)
 
-+ [DNS测速](https://gitee.com/kuankuan2007/dns-speed-measurement)
+- [DNS测速](https://gitee.com/kuankuan2007/dns-speed-measurement)
 
 #### 闭源项目
 
-+ QQ机器人
+- QQ机器人
 
-+ QQ防撤回
+- QQ防撤回
 
-+ 高精度计算
+- 高精度计算
 
 ### 其他
 
-+ **中考**
+- **中考**
 
-+ stable-diffusion绘画
+- stable-diffusion绘画
 
-+ VM虚拟机收集了38个系统
+- VM虚拟机收集了38个系统
 
-+ 我的世界1.19机械动力存档
+- 我的世界1.19机械动力存档
 
 ### ETC...
 

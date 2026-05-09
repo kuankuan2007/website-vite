@@ -1,8 +1,11 @@
 <template>
-  <header class="header" :class="{
-    'nav-visible': navVisibility,
-    'hidden': hidden && !navVisibility
-  }">
+  <header
+    class="header"
+    :class="{
+      'nav-visible': navVisibility,
+      hidden: hidden && !navVisibility,
+    }"
+  >
     <div id="titleGroup">
       <h1 id="title">
         {{ props.title }}
@@ -12,63 +15,73 @@
     <div class="right-bottons">
       <announcement />
       <themesChoice />
-      <userBox :need-rights="needRights" :jump="props.jump" :to-login="props.toLogin" :need-info="props.needInfo" />
+      <userBox
+        :need-rights="needRights"
+        :jump="props.jump"
+        :to-login="props.toLogin"
+        :need-info="props.needInfo"
+      />
     </div>
-    <myNav @visibility="navVisibility = $event"/>
+    <myNav @visibility="navVisibility = $event" />
   </header>
 </template>
 <script setup>
-import userBox from "./userBox.vue"
-import themesChoice from "./themesChoice.vue";
-import myNav from "./nav.vue"
-import announcement from "./announcement.vue";
-import versionStatus from "./versionStatus.vue";
-import { ref } from "vue";
-const navVisibility = ref(false)
+import userBox from './userBox.vue';
+import themesChoice from './themesChoice.vue';
+import myNav from './nav.vue';
+import announcement from './announcement.vue';
+import versionStatus from './versionStatus.vue';
+import { ref } from 'vue';
+const navVisibility = ref(false);
 var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?7b0a335b2168cbbd83ded4984e0fa1d1";
-  var s = document.getElementsByTagName("script")[0]; 
+(function () {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?7b0a335b2168cbbd83ded4984e0fa1d1';
+  var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(hm, s);
 })();
 setTimeout(() => {
-  let manifestBox = document.createElement("link");
-  manifestBox.setAttribute("rel", "manifest")
-  manifestBox.setAttribute("href", "/manifest.json")
+  let manifestBox = document.createElement('link');
+  manifestBox.setAttribute('rel', 'manifest');
+  manifestBox.setAttribute('href', '/manifest.json');
   document.body.appendChild(manifestBox);
 }, 0);
 
 let props = defineProps({
   title: {
     type: String,
-    default: "宽宽2007",
-    required: true
-  }, jump: {
+    default: '宽宽2007',
+    required: true,
+  },
+  jump: {
     type: String,
-    default: "",
-    required: false
-  }, toLogin: {
+    default: '',
+    required: false,
+  },
+  toLogin: {
     type: Boolean,
     default: false,
-    required: false
-  }, needInfo: {
+    required: false,
+  },
+  needInfo: {
     type: Boolean,
     default: false,
-    required: false
-  }, needRights: {
+    required: false,
+  },
+  needRights: {
     type: Boolean,
     default: false,
-    required: false
-  },hidden:{
+    required: false,
+  },
+  hidden: {
     type: Boolean,
     default: false,
-    required: false
-  }
-})
-let title = document.createElement("title")
-title.innerText = props.title
-document.head.appendChild(title)
+    required: false,
+  },
+});
+let title = document.createElement('title');
+title.innerText = props.title;
+document.head.appendChild(title);
 </script>
 <style lang="scss" scoped>
 .right-bottons {
@@ -91,15 +104,15 @@ header {
   left: 50%;
   transform: translate(-50%, 0);
   transition: transform 0.3s;
-  &>*{
+  & > * {
     transition: opacity 0.3s;
   }
   &.nav-visible {
-    &>*{
+    & > * {
       opacity: 0;
     }
   }
-  &.hidden{
+  &.hidden {
     transform: translate(-50%, -100%);
   }
 }
@@ -123,7 +136,7 @@ header {
   left: 85%;
   top: 50%;
   transform: translate(-50%, -50%);
-  color: #c9c9ff
+  color: #c9c9ff;
 }
 
 #toDocsMainPage,

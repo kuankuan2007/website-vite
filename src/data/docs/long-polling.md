@@ -1,7 +1,7 @@
 # 长轮询(longPolling)
 
 ```bash
-pip install longPolling 
+pip install longPolling
 ```
 
 ## 客户端
@@ -43,7 +43,7 @@ example.send(username,message)
 
 ## 关于作者
 
-作者主页[宽宽2007](https://kuankuan2007.gitee.io "作者主页")
+作者主页[宽宽2007](https://kuankuan2007.gitee.io '作者主页')
 
 pypi[longPolling · PyPI](https://pypi.org/project/longPolling/)
 

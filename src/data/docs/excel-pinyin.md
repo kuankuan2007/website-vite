@@ -40,6 +40,6 @@ emptyWord参数控制空字符的返回值
 
 ## 关于作者
 
-作者主页[宽宽2007](https://kuankuan2007.gitee.io "作者主页")
+作者主页[宽宽2007](https://kuankuan2007.gitee.io '作者主页')
 
 本项目在[苟浩铭/Excel拼音 (gitee.com)](https://gitee.com/kuankuan2007/excel-pinyin)上开源
