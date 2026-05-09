@@ -22,27 +22,27 @@
     "showdown": "^2.1.0",
     "showdown-katex": "^0.6.0",
     "sprintf": "^0.1.5",
-    "vue": "^3.5.32",
+    "vue": "^3.5.34",
     "webpack-bundle-analyzer": "^5.3.0",
     "xss": "^1.0.14"
   },
   "devDependencies": {
     "@fingerprintjs/fingerprintjs": "^5.2.0",
     "@types/fingerprintjs": "^0.5.28",
-    "@types/node": "^25.6.0",
+    "@types/node": "^25.6.2",
     "@types/sprintf": "^0.1.2",
-    "@vitejs/plugin-vue": "^6.0.5",
-    "autoprefixer": "^10.4.27",
-    "compressing": "^2.1.0",
-    "cssnano": "^7.1.4",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "autoprefixer": "^10.5.0",
+    "compressing": "^2.1.1",
+    "cssnano": "^8.0.1",
     "postcss-preset-env": "^11.2.1",
     "prettier": "^3.8.2",
     "rollup-plugin-visualizer": "^7.0.1",
     "sass": "^1.99.0",
-    "terser": "^5.46.1",
-    "vite": "^8.0.8",
+    "terser": "^5.47.1",
+    "vite": "^8.0.11",
     "vite-plugin-inspect": "^11.3.3",
     "vite-plugin-sitemap": "^0.8.2",
-    "vite-plugin-vue-devtools": "^8.1.1"
+    "vite-plugin-vue-devtools": "^8.1.2"
   }
 }
