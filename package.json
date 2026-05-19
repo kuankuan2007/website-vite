@@ -44,5 +44,6 @@
     "vite-plugin-inspect": "^11.3.3",
     "vite-plugin-sitemap": "^0.8.2",
     "vite-plugin-vue-devtools": "^8.1.2"
-  }
+  },
+  "packageManager": "pnpm@11.1.3"
 }
