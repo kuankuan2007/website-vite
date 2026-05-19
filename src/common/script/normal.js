@@ -1,4 +1,4 @@
-import { sprintf } from 'sprintf';
+import { sprintf } from 'sprintf-js';
 import { customRef, reactive, ref } from 'vue';
 import QRCode from 'qrcode';
 console.log(import.meta.env);
