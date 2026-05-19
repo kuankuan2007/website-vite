@@ -49,7 +49,7 @@ export default {
       mainColor: '#9B9E81',
     },
     {
-      href: '/contactInformation/',
+      href: 'https://contact.pages.kuankuan.site',
       word: '联系我们',
       icon: '\uf2b9',
       mainColor: '#FF2259',
