@@ -11,9 +11,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@vitejs/plugin-legacy": "^8.0.2",
+    "@fingerprintjs/fingerprintjs": "^5.2.0",
     "cbor-js": "^0.1.0",
-    "fingerprintjs": "^0.5.3",
     "highlight.js": "^11.8.0",
     "katex": "^0.16.47",
     "music-metadata": "^11.12.3",
@@ -27,9 +26,9 @@
     "xss": "^1.0.14"
   },
   "devDependencies": {
-    "@fingerprintjs/fingerprintjs": "^5.2.0",
     "@types/fingerprintjs": "^0.5.28",
     "@types/node": "^25.9.0",
+    "@vitejs/plugin-legacy": "^8.0.2",
     "@vitejs/plugin-vue": "^6.0.7",
     "autoprefixer": "^10.5.0",
     "compressing": "^2.1.1",

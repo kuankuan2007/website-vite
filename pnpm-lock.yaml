@@ -8,15 +8,12 @@ importers:
 
   .:
     dependencies:
-      '@vitejs/plugin-legacy':
-        specifier: ^8.0.2
-        version: 8.0.2(terser@5.47.1)(vite@8.0.13(@types/node@25.9.0)(sass@1.99.0)(terser@5.47.1))
+      '@fingerprintjs/fingerprintjs':
+        specifier: ^5.2.0
+        version: 5.2.0
       cbor-js:
         specifier: ^0.1.0
         version: 0.1.0
-      fingerprintjs:
-        specifier: ^0.5.3
-        version: 0.5.3
       highlight.js:
         specifier: ^11.8.0
         version: 11.11.1
@@ -51,15 +48,15 @@ importers:
         specifier: ^1.0.14
         version: 1.0.15
     devDependencies:
-      '@fingerprintjs/fingerprintjs':
-        specifier: ^5.2.0
-        version: 5.2.0
       '@types/fingerprintjs':
         specifier: ^0.5.28
         version: 0.5.28
       '@types/node':
         specifier: ^25.9.0
         version: 25.9.0
+      '@vitejs/plugin-legacy':
+        specifier: ^8.0.2
+        version: 8.0.2(terser@5.47.1)(vite@8.0.13(@types/node@25.9.0)(sass@1.99.0)(terser@5.47.1))
       '@vitejs/plugin-vue':
         specifier: ^6.0.7
         version: 6.0.7(vite@8.0.13(@types/node@25.9.0)(sass@1.99.0)(terser@5.47.1))(vue@3.5.34)
@@ -1659,10 +1656,6 @@ packages:
   find-up@4.1.0:
     resolution: {integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==}
     engines: {node: '>=8'}
-
-  fingerprintjs@0.5.3:
-    resolution: {integrity: sha512-LPW+iJ9yaV+FIXbmPkbyp7n6UoxV1euVozieaq3ckuvPEAyJRRB0JxbBsShHh5h1jc9yn/EZ95EEb78109zuKg==}
-    deprecated: Package has been renamed to @fingerprintjs/fingerprintjs. Install @fingerprintjs/fingerprintjs to get updates.
 
   flushwritable@1.0.0:
     resolution: {integrity: sha512-3VELfuWCLVzt5d2Gblk8qcqFro6nuwvxwMzHaENVDHI7rxcBRtMCwTk/E9FXcgh+82DSpavPNDueA9+RxXJoFg==}
@@ -4502,8 +4495,6 @@ snapshots:
     dependencies:
       locate-path: 5.0.0
       path-exists: 4.0.0
-
-  fingerprintjs@0.5.3: {}
 
   flushwritable@1.0.0: {}
 
