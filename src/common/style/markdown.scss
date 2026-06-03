@@ -1,0 +1,73 @@
+@use 'sass:meta';
+.k-markdown-shower {
+  html[data-theme-light='light'] & {
+    @include meta.load-css('highlight.js/scss/vs');
+    .k-md-node-code-block,
+    .k-md-node-code-inline {
+      background: white;
+      color: black;
+    }
+  }
+  html[data-theme-light='dark'] & {
+    @include meta.load-css('highlight.js/scss/monokai-sublime');
+    .k-md-node-code-block,
+    .k-md-node-code-inline {
+      background: #23241f;
+      color: #f8f8f2;
+    }
+  }
+  code {
+    font-family: 'monaspace neon', 'fira code', monospace;
+  }
+
+  .k-md-node-code-block {
+    padding: 1em;
+    border-radius: 0.5em;
+    position: relative;
+    overflow: hidden;
+    .k-md-ele-code-block-inner {
+      overflow-y: auto;
+    }
+  }
+  .k-md-node-code-inline {
+    code {
+      font-family: 'monaspace neon', 'fira code', monospace;
+      padding: 0.2em 0.3em;
+      border-radius: 0.3em;
+    }
+  }
+  blockquote {
+    margin: 0;
+    padding: 0.5em 1em;
+    border-left: solid 0.8em var(--theme-2-6);
+    border-radius: 0.5em;
+    background-color: var(--theme-2-4);
+    blockquote {
+      margin-left: -0.5em;
+      padding-right: 0;
+    }
+  }
+  @function repeat-string($str, $num) {
+    $result: '';
+    @for $i from 1 through $num {
+      $result: $result + $str;
+    }
+    @return $result;
+  }
+  @for $i from 1 through 6 {
+    h#{$i} {
+      &::before {
+        content: repeat-string('#', $i) + ' ';
+        opacity: 0.5;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+    }
+  }
+  table {
+    border-collapse: collapse;
+    td {
+      border: 1px solid var(--theme-disabled-font);
+    }
+  }
+}

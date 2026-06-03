@@ -14,7 +14,7 @@
 <script setup>
 import { ref } from "vue";
 import myheader from "../../../src/common/components/header.vue"
-import markdownShower from "../../../src/common/components/markdownShower.vue"
+import markdownShower from "../../../src/common/components/markdownshower.vue"
 import { getQueryVariable,downloadData } from "../../../src/common/script/normal"
 import { showMessage, showError } from "../../../src/common/script/infomations"
 import docs from "../../../src/data/docs";
