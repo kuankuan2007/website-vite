@@ -86,7 +86,7 @@ import myinput from '../src/common/components/input/text.vue';
 import mybutton from '../src/common/components/input/button.vue';
 import iconMap from '../src/data/demo-icon';
 import { jump } from '../src/common/script/normal';
-import { sprintf } from 'sprintf';
+import { sprintf } from 'sprintf-js';
 
 import showBG from './back';
 

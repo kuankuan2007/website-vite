@@ -8,15 +8,18 @@ importers:
 
   .:
     dependencies:
-      '@vitejs/plugin-legacy':
-        specifier: ^8.0.2
-        version: 8.0.2(terser@5.48.0)(vite@8.0.16(@types/node@25.9.1)(sass@1.100.0)(terser@5.48.0))
+      '@fingerprintjs/fingerprintjs':
+        specifier: ^5.2.0
+        version: 5.2.0
+      '@kuankuan/k-markdown-parser':
+        specifier: ^1.3.7
+        version: 1.3.7
+      '@kuankuan/k-markdown-vue':
+        specifier: ^0.1.11
+        version: 0.1.11(highlight.js@11.11.1)
       cbor-js:
         specifier: ^0.1.0
         version: 0.1.0
-      fingerprintjs:
-        specifier: ^0.5.3
-        version: 0.5.3
       highlight.js:
         specifier: ^11.11.1
         version: 11.11.1
@@ -38,9 +41,9 @@ importers:
       showdown-katex:
         specifier: ^0.6.0
         version: 0.6.0(showdown@2.1.0)
-      sprintf:
-        specifier: ^0.1.5
-        version: 0.1.5
+      sprintf-js:
+        specifier: ^1.1.3
+        version: 1.1.3
       vue:
         specifier: ^3.5.35
         version: 3.5.35
@@ -51,18 +54,15 @@ importers:
         specifier: ^1.0.15
         version: 1.0.15
     devDependencies:
-      '@fingerprintjs/fingerprintjs':
-        specifier: ^5.2.0
-        version: 5.2.0
       '@types/fingerprintjs':
         specifier: ^0.5.28
         version: 0.5.28
       '@types/node':
         specifier: ^25.9.1
         version: 25.9.1
-      '@types/sprintf':
-        specifier: ^0.1.2
-        version: 0.1.2
+      '@vitejs/plugin-legacy':
+        specifier: ^8.0.2
+        version: 8.0.2(terser@5.48.0)(vite@8.0.16(@types/node@25.9.1)(sass@1.100.0)(terser@5.48.0))
       '@vitejs/plugin-vue':
         specifier: ^6.0.7
         version: 6.0.7(vite@8.0.16(@types/node@25.9.1)(sass@1.100.0)(terser@5.48.0))(vue@3.5.35)
@@ -1005,6 +1005,17 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
+  '@kuankuan/k-markdown-parser@1.3.7':
+    resolution: {integrity: sha512-u1D76ZezrQSVZSbw52dAPV1Bd8bxQBVytSWQS258XhG7i6l/5+Qk7iYuLaliIxFRP8ONbJRlkToxvnn2cB/Fmw==}
+
+  '@kuankuan/k-markdown-vue@0.1.11':
+    resolution: {integrity: sha512-5+Hpt47onXR+zWnJZ2SN2EF++8DtNLiQuFORdY0LJzNvgHdfOjKT/DmZtbgE5EO84zbbthUIIrSvArK8pYTcpw==}
+    peerDependencies:
+      highlight.js: '>=11.0.0'
+    peerDependenciesMeta:
+      highlight.js:
+        optional: true
+
   '@napi-rs/wasm-runtime@1.1.4':
     resolution: {integrity: sha512-3NQNNgA1YSlJb/kMH1ildASP9HW7/7kYnRI2szWJaofaS1hWmbGI4H+d3+22aGzXXN9IJ+n+GiFVcGipJP18ow==}
     peerDependencies:
@@ -1218,9 +1229,6 @@ packages:
 
   '@types/node@25.9.1':
     resolution: {integrity: sha512-xfrlY7UD5rMJk3ZVJP8BNzS28J36YJg+xp+LPXV1TdWxr8uMH5A860QNxYDGQe/ylDSgjxE52Q9VnO7p75tJxg==}
-
-  '@types/sprintf@0.1.2':
-    resolution: {integrity: sha512-uyDqLSXsTcoS5qV2ivIFtckLaoscEAeYV6/aPKBC8sUBUKQDLaMD3huA9q7eKIaiq6rrYHI5pmjIG4el6o5pcw==}
 
   '@vitejs/plugin-legacy@8.0.2':
     resolution: {integrity: sha512-+n6znc/hTsuD2v/qWX3nfR6UFWFKwpL+XS+SPyiPuEwAvR24iRvLkJQDh18u0XrHPEwuwxPmw0VopvlmLSg66Q==}
@@ -1668,10 +1676,6 @@ packages:
   find-up@4.1.0:
     resolution: {integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==}
     engines: {node: '>=8'}
-
-  fingerprintjs@0.5.3:
-    resolution: {integrity: sha512-LPW+iJ9yaV+FIXbmPkbyp7n6UoxV1euVozieaq3ckuvPEAyJRRB0JxbBsShHh5h1jc9yn/EZ95EEb78109zuKg==}
-    deprecated: Package has been renamed to @fingerprintjs/fingerprintjs. Install @fingerprintjs/fingerprintjs to get updates.
 
   flushwritable@1.0.0:
     resolution: {integrity: sha512-3VELfuWCLVzt5d2Gblk8qcqFro6nuwvxwMzHaENVDHI7rxcBRtMCwTk/E9FXcgh+82DSpavPNDueA9+RxXJoFg==}
@@ -2497,10 +2501,8 @@ packages:
     resolution: {integrity: sha512-i5uvt8C3ikiWeNZSVZNWcfZPItFQOsYTUAOkcUPGd8DqDy1uOUikjt5dG+uRlwyvR108Fb9DOd4GvXfT0N2/uQ==}
     engines: {node: '>= 12'}
 
-  sprintf@0.1.5:
-    resolution: {integrity: sha512-4X5KsuXFQ7f+d7Y+bi4qSb6eI+YoifDTGr0MQJXRoYO7BO7evfRCjds6kk3z7l5CiJYxgDN1x5Er4WiyCt+zTQ==}
-    engines: {node: '>=0.2.4'}
-    deprecated: The sprintf package is deprecated in favor of sprintf-js.
+  sprintf-js@1.1.3:
+    resolution: {integrity: sha512-Oo+0REFV59/rz3gfJNKQiBlwfHaSESl1pcGyABQsnnIfWOFt6JNj5gCog2U6MLZ//IGYD+nA8nI+mTShREReaA==}
 
   streamifier@0.1.1:
     resolution: {integrity: sha512-zDgl+muIlWzXNsXeyUfOk9dChMjlpkq0DRsxujtYPgyJ676yQ8jEm6zzaaWHFDg5BNcLuif0eD2MTyJdZqXpdg==}
@@ -3870,6 +3872,18 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
+  '@kuankuan/k-markdown-parser@1.3.7': {}
+
+  '@kuankuan/k-markdown-vue@0.1.11(highlight.js@11.11.1)':
+    dependencies:
+      '@kuankuan/k-markdown-parser': 1.3.7
+      katex: 0.16.47
+      vue: 3.5.35
+    optionalDependencies:
+      highlight.js: 11.11.1
+    transitivePeerDependencies:
+      - typescript
+
   '@napi-rs/wasm-runtime@1.1.4(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)':
     dependencies:
       '@emnapi/core': 1.10.0
@@ -4012,8 +4026,6 @@ snapshots:
   '@types/node@25.9.1':
     dependencies:
       undici-types: 7.24.6
-
-  '@types/sprintf@0.1.2': {}
 
   '@vitejs/plugin-legacy@8.0.2(terser@5.48.0)(vite@8.0.16(@types/node@25.9.1)(sass@1.100.0)(terser@5.48.0))':
     dependencies:
@@ -4513,8 +4525,6 @@ snapshots:
     dependencies:
       locate-path: 5.0.0
       path-exists: 4.0.0
-
-  fingerprintjs@0.5.3: {}
 
   flushwritable@1.0.0: {}
 
@@ -5332,7 +5342,7 @@ snapshots:
 
   source-map@0.7.6: {}
 
-  sprintf@0.1.5: {}
+  sprintf-js@1.1.3: {}
 
   streamifier@0.1.1: {}
 

@@ -1,24 +1,21 @@
 <template>
-  <myheader title="开发人员调试页面"></myheader>
-  <div class="full">
+  <k-header title="Markdown测试页面" />
+    <div class="full">
     <div class="main">
-      <markdownshower :content="aboutContent" :header-level-start="2" />
+      <markdownshower :content="testMd" :header-level-start="2" />
     </div>
   </div>
   <div id="particles-js" class="background"></div>
 </template>
 <script setup>
-import { onMounted, ref } from "vue";
-import showBG from "./back"
-import myheader from "../../src/common/components/header.vue";
-import markdownshower from "../../src/common/components/markdownShower.vue";
-import about from "./assets/dev-only.md?raw"
-
-const aboutContent = ref(about)
+import KHeader from '../../../src/common/components/header.vue';
+import showBG from './back';
+import { onMounted } from 'vue';
+import testMd from './assets/test.md?raw';
+import markdownshower from '../../../src/common/components/markdownshower.vue';
 onMounted(() => {
   showBG()
 })
-
 </script>
 <style scoped lang="scss">
 .full {

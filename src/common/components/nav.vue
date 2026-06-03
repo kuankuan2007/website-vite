@@ -55,7 +55,7 @@
   </teleport>
 </template>
 <script setup>
-import { sprintf } from 'sprintf';
+import { sprintf } from 'sprintf-js';
 import { reactive, ref, watchEffect } from 'vue';
 import { getJumpUrl } from '../script/normal';
 import importButton from './input/linkLikeButton.vue';
