@@ -2,5 +2,4 @@ allowBuilds:
   '@parcel/watcher': true
   core-js: true
 minimumReleaseAgeExclude:
-  - '@kuankuan/k-markdown-vue@0.1.10'
   - '@kuankuan/k-markdown-vue@0.1.11'
