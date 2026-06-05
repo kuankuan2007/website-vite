@@ -1,8 +1,12 @@
 <template>
   <k-header title="Markdown测试页面" />
-    <div class="full">
+  <div class="full">
     <div class="main">
       <markdownshower :content="testMd" :header-level-start="2" />
+    </div>
+    <div class="editer">
+      <markdowneditor :content="content"
+        @update:content="content = $event.target.value" />
     </div>
   </div>
   <div id="particles-js" class="background"></div>
@@ -10,27 +14,35 @@
 <script setup>
 import KHeader from '../../../src/common/components/header.vue';
 import showBG from './back';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import testMd from './assets/test.md?raw';
 import markdownshower from '../../../src/common/components/markdownshower.vue';
+import markdowneditor from '../../../src/common/components/markDownEditor.vue';
+
+const content = ref('');
+
 onMounted(() => {
-  showBG()
-})
+  showBG();
+});
 </script>
 <style scoped lang="scss">
 .full {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 60px;
   padding-top: 20px;
   min-height: calc(100vh - 90px);
 
-  &>.main {
+  & > .main {
     max-width: 80%;
     background-color: var(--theme-1-1);
     padding: 20px;
     border-radius: calc(20px * var(--theme-border-radius));
+  }
+  & > .editer {
+    width: 80%;
   }
 }
 

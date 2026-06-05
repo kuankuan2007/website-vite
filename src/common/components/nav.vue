@@ -63,7 +63,7 @@ import importButton from './input/linkLikeButton.vue';
 let finished = ref(false);
 let data = reactive({});
 let nowList = ref([]);
-const emit = defineEmits('visibility');
+const emit = defineEmits(['visibility']);
 watchEffect(() => {
   emit('visibility', nowList.value.length > 0);
 });

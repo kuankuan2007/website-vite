@@ -21,6 +21,8 @@ import { computed, ref } from 'vue';
 import { getRefWithStorage, copyText } from '../../../src/common/script/normal';
 import { showMessage } from '../../../src/common/script/infomations';
 import contextMenu from '../../../src/common/components/contextMenu.vue';
+import markdownShower from '../../../src/common/components/markdownshower.vue';
+
 
 let emit = defineEmits(['recall']);
 let show = ref(true);

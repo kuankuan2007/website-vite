@@ -10,7 +10,7 @@
       @input="contentChange"
     ></textarea>
     <markdownShower
-      ref="shower"
+      ref="showerEle"
       @content-changed="refrshHeight"
       v-show="set['display'] !== 'hidden' || hiddenModeShowing === 'shower'"
       class="shower"
@@ -67,10 +67,10 @@
 </template>
 <script setup>
 import ALL from '../../../src/common/script/all.js';
-import markdownShower from './markdownShower.vue';
+import markdownShower from './markdownshower.vue';
 import mydialog from './dialog.vue';
 import { debounceRef } from '../script/normal';
-import { watchEffect, ref, onMounted } from 'vue';
+import { watchEffect, ref, onMounted, useTemplateRef } from 'vue';
 import linkLikeButton from './input/linkLikeButton.vue';
 
 function keydown(event) {
@@ -114,17 +114,18 @@ function contentChange(event) {
   refrshHeight();
   emit('update:content', event);
 }
+const showerEle = useTemplateRef('showerEle');
+const editer = useTemplateRef('editer');
 function refrshHeight() {
   editer.value.style.minHeight = 'unset';
-  shower.value.showBox.style.minHeight = 'unset';
+  showerEle.value.showBox.style.minHeight = 'unset';
   markdownEditor.value.style.minHeight = 'unset';
   let allHeight = Math.min(props.maxEditorHeight, editer.value.scrollHeight - 20);
   editer.value.style.minHeight = `${allHeight}px`;
-  shower.value.showBox.style.minHeight = `${allHeight}px`;
+  showerEle.value.showBox.style.minHeight = `${allHeight}px`;
   markdownEditor.value.style.minHeight = `${allHeight + 20}px`;
 }
-let shower = ref(null);
-let editer = ref(null);
+
 function closeThemesChoicer() {
   settingDialog.value.close();
 }
